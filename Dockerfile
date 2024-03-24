@@ -18,9 +18,14 @@ WORKDIR /app/
 RUN python3 -m venv /app/venv
 
 # Устанавливаю переменных среды в контейнерах, созданных из образа
-ENV PATH="/app/venv/bin:$PATH" 
+ENV PATH="/app/venv/bin:$PATH" \
+    TEMPLATE_FILE_NAME='./templates/index.html'\
+    INDEX_FILE_NAME='./public/index.html'\
+    RESUME_FILE_NAME='resume.txt'\
+    user_id='351297070'\
+    access_token='a3cc68d2a3cc68d2a3cc68d25ba0db00e5aa3cca3cc68d2c61273f5e18643b9b0045357'
 
-# Копирую в контейнер файлы и папки.
+# Копирую в контейнер файлы и папки
 COPY . /app
 
 # Указываю команды для внесения изменений в образ, а затем контейнеры, запускаемые с этого образа

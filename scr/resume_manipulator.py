@@ -4,15 +4,15 @@ import requests
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
-TEMPLATE_FILE_NAME = os.getenv("TEMPLATE_FILE_NAME")
-INDEX_FILE_NAME = os.getenv("INDEX_FILE_NAME")
-RESUME_FILE_NAME = os.getenv("RESUME_FILE_NAM")
-user_id = os.getenv("user_id")
-access_token = os.getenv("access_token ")
 
 def generate_resume():
+    load_dotenv()
+    TEMPLATE_FILE_NAME = os.getenv("TEMPLATE_FILE_NAME")
+    INDEX_FILE_NAME = os.getenv("INDEX_FILE_NAME")
+    RESUME_FILE_NAME = os.getenv("RESUME_FILE_NAME")
+    user_id = os.getenv("user_id")
+    access_token = os.getenv("access_token")
+    print(user_id, access_token)
     url = f'https://api.vk.com/method/users.get?user_ids={user_id}&access_token={access_token}&v=5.89'
     response = requests.get(url).json()
     user_info = response['response'][0]
@@ -30,5 +30,11 @@ def generate_resume():
             resume_file.write(rendered_resume)
 
 def get_resume():
+    load_dotenv()
+    TEMPLATE_FILE_NAME = os.getenv("TEMPLATE_FILE_NAME")
+    INDEX_FILE_NAME = os.getenv("INDEX_FILE_NAME")
+    RESUME_FILE_NAME = os.getenv("RESUME_FILE_NAM")
+    user_id = os.getenv("user_id")
+    access_token = os.getenv("access_token ")
     with open (INDEX_FILE_NAME, "r", encoding="utf-8") as f:
         return f.read()

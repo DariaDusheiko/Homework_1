@@ -4,6 +4,12 @@ version: '3'
 # список всех контейнеров, которые нужно будет запустить
 services:
   app:
+    #
     build: .
     ports:
-      - "80:80"
+    - "80:80"
+    networks:
+    - frontend
+
+networks:
+  frontend:
