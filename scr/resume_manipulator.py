@@ -6,6 +6,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+TEMPLATE_FILE_NAME = os.getenv("TEMPLATE_FILE_NAME")
+INDEX_FILE_NAME = os.getenv("INDEX_FILE_NAME")
+RESUME_FILE_NAME = os.getenv("RESUME_FILE_NAM")
+user_id = os.getenv("user_id")
+access_token = os.getenv("access_token ")
 
 def generate_resume():
     url = f'https://api.vk.com/method/users.get?user_ids={user_id}&access_token={access_token}&v=5.89'
